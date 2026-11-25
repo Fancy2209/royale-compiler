@@ -256,6 +256,12 @@ public class NumericLiteralNode extends LiteralNode implements INumericLiteralNo
         }
 
         @Override
+        public final float toFloat()
+        {
+            return number.floatValue();
+        }
+
+        @Override
         public final double toNumber()
         {
             return number.doubleValue();

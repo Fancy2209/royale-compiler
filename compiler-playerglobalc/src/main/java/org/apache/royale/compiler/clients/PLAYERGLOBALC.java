@@ -65,7 +65,7 @@ class PLAYERGLOBALC implements FlexTool {
         }
 	}
 
-	private static final List<String> VECTOR_SUFFIXES = Arrays.asList("$double", "$int", "$uint", "$object");
+	private static final List<String> VECTOR_SUFFIXES = Arrays.asList("$double", "$float", "$int", "$uint", "$object");
 	// From the docs: Methods of the Object class are dynamically created on
 	// Object's prototype.
 	private static final List<String> OBJECT_PROTOTYPE_METHODS = Arrays.asList("setPropertyIsEnumerable", "toString",
@@ -73,7 +73,7 @@ class PLAYERGLOBALC implements FlexTool {
 	private static final List<String> OBJECT_AS3_METHODS = Arrays.asList("hasOwnProperty", "isPrototypeOf",
 			"propertyIsEnumerable");
 	private static final List<String> ANY_CONSTRUCTORS = Arrays.asList("ArgumentError", "Boolean", "Date",
-			"DefinitionError", "Error", "EvalError", "int", "Number", "RangeError", "ReferenceError", "RegExp",
+			"DefinitionError", "Error", "EvalError", "float", "int", "Number", "RangeError", "ReferenceError", "RegExp",
 			"SecurityError", "String", "SyntaxError", "TypeError", "uint", "URIError", "VerifyError", "XML", "XMLList");
 	private static final Map<String, String> GLOBAL_CONSTANTS = new HashMap<String, String>();
 	{
@@ -90,6 +90,7 @@ class PLAYERGLOBALC implements FlexTool {
 		REST_METHODS.put("Array", Arrays.asList("splice"));
 		REST_METHODS.put("__AS3__.vec.Vector$object", Arrays.asList("sort"));
 		REST_METHODS.put("__AS3__.vec.Vector$double", Arrays.asList("sort"));
+		REST_METHODS.put("__AS3__.vec.Vector$float", Arrays.asList("sort"));
 		REST_METHODS.put("__AS3__.vec.Vector$int", Arrays.asList("sort"));
 		REST_METHODS.put("__AS3__.vec.Vector$uint", Arrays.asList("sort"));
 	}
@@ -99,6 +100,7 @@ class PLAYERGLOBALC implements FlexTool {
 				Arrays.asList("setFullYear", "setMonth", "setDate", "setHours", "setMinutes", "setSeconds",
 						"setMilliseconds", "setUTCFullYear", "setUTCMonth", "setUTCDate", "setUTCHours",
 						"setUTCMinutes", "setUTCSeconds", "setUTCMilliseconds", "setTime"));
+		NULL_DEFAULT_METHODS.put("float", Arrays.asList("toExponential", "toFixed", "toPrecision"));
 		NULL_DEFAULT_METHODS.put("Number", Arrays.asList("toExponential", "toFixed", "toPrecision"));
 		NULL_DEFAULT_METHODS.put("Object", Arrays.asList("hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable"));
 	}
@@ -108,6 +110,7 @@ class PLAYERGLOBALC implements FlexTool {
 				Arrays.asList("setFullYear", "setMonth", "setDate", "setHours", "setMinutes", "setSeconds",
 						"setMilliseconds", "setUTCFullYear", "setUTCMonth", "setUTCDate", "setUTCHours",
 						"setUTCMinutes", "setUTCSeconds", "setUTCMilliseconds", "setTime", "UTC", "parse"));
+		ANY_METHODS.put("float", Arrays.asList("toExponential", "toFixed", "toPrecision", "toString"));
 		ANY_METHODS.put("Number", Arrays.asList("toExponential", "toFixed", "toPrecision", "toString"));
 		ANY_METHODS.put("Object", Arrays.asList("hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable"));
 		ANY_METHODS.put("XML", Arrays.asList("addNamespace", "appendChild", "attribute", "child", "contains",
@@ -131,6 +134,9 @@ class PLAYERGLOBALC implements FlexTool {
 		EXTRA_MEMBERS.put("__AS3__.vec.Vector$double",
 				Arrays.asList("AS3 native function insertAt(index:int, element:Number):void",
 						"AS3 native function removeAt(index:int):Number"));
+		EXTRA_MEMBERS.put("__AS3__.vec.Vector$float",
+				Arrays.asList("AS3 native function insertAt(index:int, element:float):void",
+						"AS3 native function removeAt(index:int):float"));
 		EXTRA_MEMBERS.put("__AS3__.vec.Vector$int",
 				Arrays.asList("AS3 native function insertAt(index:int, element:int):void",
 						"AS3 native function removeAt(index:int):int"));

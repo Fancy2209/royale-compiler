@@ -77,6 +77,7 @@ import static org.apache.royale.abc.ABCConstants.OP_newfunction;
 import static org.apache.royale.abc.ABCConstants.OP_newobject;
 import static org.apache.royale.abc.ABCConstants.OP_pushbyte;
 import static org.apache.royale.abc.ABCConstants.OP_pushdouble;
+import static org.apache.royale.abc.ABCConstants.OP_pushfloat;
 import static org.apache.royale.abc.ABCConstants.OP_pushint;
 import static org.apache.royale.abc.ABCConstants.OP_pushnamespace;
 import static org.apache.royale.abc.ABCConstants.OP_pushscope;
@@ -205,6 +206,11 @@ public final class ABCEmitter implements IABCVisitor
      * double pool, has default zero entry.
      */
     final Pool<Double> doublePool = new Pool<Double>(Pool.DefaultType.HasDefaultZero);
+
+    /**
+     * float pool, has default zero entry.
+     */
+    final Pool<Float> floatPool = new Pool<Float>(Pool.DefaultType.HasDefaultZero);
     
     /**
      * namespace pool, has default zero entry.
@@ -334,6 +340,13 @@ public final class ABCEmitter implements IABCVisitor
         for (double x : this.doublePool.getValues())
         {
             w.write64(Double.doubleToLongBits(x));
+        }
+
+        // TODO: compiler.float
+        w.writeU30(this.floatPool.getNominalSize());
+        for (float x : this.floatPool.getValues())
+        {
+            w.writeU30(Float.floatToIntBits(x));
         }
 
         w.writeU30(this.stringPool.getNominalSize());
@@ -550,6 +563,11 @@ public final class ABCEmitter implements IABCVisitor
                         {
                             w.writeU30(doublePool.id((Double)trait_value));
                             w.write(ABCConstants.CONSTANT_Double);
+                        }
+                        else if (trait_value instanceof Float)
+                        {
+                            w.writeU30(floatPool.id((Float)trait_value));
+                            w.write(ABCConstants.CONSTANT_Float);
                         }
                         else if (trait_value instanceof Integer)
                         {
@@ -963,6 +981,11 @@ public final class ABCEmitter implements IABCVisitor
                     blockWriter.writeU30(doublePool.id((Double)insn.getOperand(0)));
                     break;
                 }
+                case OP_pushfloat:
+                {
+                    blockWriter.writeU30(floatPool.id((Float)insn.getOperand(0)));
+                    break;
+                }
                 case OP_debugline:
                 case OP_bkptline:
                 {
@@ -1198,6 +1221,11 @@ public final class ABCEmitter implements IABCVisitor
                         uintPool.add((Long)insn.getOperand(0));
                         break;
                     }
+                    case OP_pushfloat:
+                    {
+                        floatPool.add((Float)insn.getOperand(0));
+                       break;
+                    }
                     case OP_pushdouble:
                     {
                         doublePool.add((Double)insn.getOperand(0));
@@ -1344,6 +1372,14 @@ public final class ABCEmitter implements IABCVisitor
         verifyEmitterStatus();
 
         this.doublePool.add(d);
+    }
+
+    @Override
+    public void visitPooledFloat(Float f)
+    {
+        verifyEmitterStatus();
+
+        this.floatPool.add(f);
     }
 
     @Override
@@ -2000,6 +2036,11 @@ public final class ABCEmitter implements IABCVisitor
             {
                 visitPooledDouble(value.getDoubleValue());
                 return this.doublePool.id(value.getDoubleValue());
+            }
+            case ABCConstants.CONSTANT_Float:
+            {
+                visitPooledFloat(value.getFloatValue());
+                return this.floatPool.id(value.getFloatValue());
             }
             case ABCConstants.CONSTANT_Utf8:
             {

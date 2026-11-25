@@ -76,6 +76,11 @@ public class NilABCVisitor implements IABCVisitor
     }
 
     @Override
+    public void visitPooledFloat(Float f)
+    {
+    }
+
+    @Override
     public void visitPooledString(String s)
     {
     }

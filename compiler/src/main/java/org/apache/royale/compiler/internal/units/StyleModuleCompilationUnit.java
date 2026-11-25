@@ -202,7 +202,7 @@ public class StyleModuleCompilationUnit extends CompilationUnitBase
     {
         final StyleModuleSemanticRequestResult semanticResult = (StyleModuleSemanticRequestResult) getOutgoingDependenciesRequest().get();
         final ABCEmitter emitter = new ABCEmitter();
-        emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+        emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
         final RoyaleProject project = (RoyaleProject)getProject();
         final List<ICompilerProblem> problems = new ArrayList<ICompilerProblem>();
         byte[] bytes = null;

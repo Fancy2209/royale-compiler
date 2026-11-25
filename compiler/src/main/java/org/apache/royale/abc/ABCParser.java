@@ -90,6 +90,11 @@ public class ABCParser
      * Floating-point values defined by this ABC.
      */
     private double[] doubles;
+    
+    /**
+     * Floating-point values defined by this ABC.
+     */
+    private float[] floats;
 
     /**
      * Metdata defined by this ABC.
@@ -185,7 +190,7 @@ public class ABCParser
         }
 
         if (verbose)
-        	output.println("parsing float pool");
+        	output.println("parsing double pool");
         
         pool_size = p.readU30();
         doubles = new double[pool_size];
@@ -193,6 +198,18 @@ public class ABCParser
         {
             doubles[i] = p.readDouble();
             vabc.visitPooledDouble(doubles[i]);
+        }
+
+        // TODO: compiler.float
+        if (verbose)
+        	output.println("parsing float pool");
+        
+        pool_size = p.readU30();
+        floats = new float[pool_size];
+        for (int i = 1; i < pool_size; i++)
+        {
+            floats[i] = p.readFloat();
+            vabc.visitPooledFloat(floats[i]);
         }
 
         if (verbose)
@@ -737,6 +754,10 @@ public class ABCParser
             case CONSTANT_Double:
             {
                 return readDoublePool(i);
+            }
+            case CONSTANT_Float:
+            {
+                return readFloatPool(i);
             }
             case CONSTANT_Namespace:
             {
@@ -1312,6 +1333,21 @@ public class ABCParser
             throw new IllegalStateException(String.format("%d is not a valid double pool index.", idx));
 
         return this.doubles[idx];
+    }
+
+    /**
+     * Read a required value from the float pool.
+     * 
+     * @param idx - the proposed pool index.
+     * @return the pool's value at the specified index.
+     * @throws IllegalStateException if the index is out of range.
+     */
+    private double readFloatPool(final int idx)
+    {
+        if (idx < 0 || idx >= this.floats.length)
+            throw new IllegalStateException(String.format("%d is not a valid float pool index.", idx));
+
+        return this.floats[idx];
     }
 
 }

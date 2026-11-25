@@ -480,7 +480,7 @@ public class ASBlockWalker implements IASBlockVisitor, IASBlockWalker
         if (node.getLiteralType() == LiteralType.NUMBER
                 || node.getLiteralType() == LiteralType.BOOLEAN
                 || node.getLiteralType() == LiteralType.NULL
-                || node.getLiteralType() == LiteralType.NUMBER
+                || node.getLiteralType() == LiteralType.FLOAT
                 || node.getLiteralType() == LiteralType.REGEXP
                 || node.getLiteralType() == LiteralType.STRING
                 || node.getLiteralType() == LiteralType.XML

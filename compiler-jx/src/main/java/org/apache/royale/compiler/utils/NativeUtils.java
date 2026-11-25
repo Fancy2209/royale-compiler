@@ -35,6 +35,7 @@ public class NativeUtils
         Date("Date"),
         Error("Error"),
         EvalError("EvalError"),
+        _float("float"),
         Function("Function"),
         Infinity("Infinity"),
         Math("Math"),
@@ -126,6 +127,7 @@ public class NativeUtils
         // (erikdebruin) These aren't strictly 'native' to JS, but the
         //               Publisher provides global functions, so, for all
         //               intends and purposes they behave like they are.
+        _float("float"),
         _int("int"),
         trace("trace"),
         uint("uint"),
@@ -157,6 +159,7 @@ public class NativeUtils
     
     public enum SyntheticJSType
     {
+        _float("float"),
         _int("int"),
         uint("uint"),
         Vector("Vector"),

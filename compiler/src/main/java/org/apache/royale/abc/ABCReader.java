@@ -81,4 +81,9 @@ class ABCReader
                                        ((long)readU16()) << 32 | ((long)readU16()) << 48);
     }
 
+    float readFloat()
+    {
+        return Float.intBitsToFloat(readU16() | ((int)readU16()) << 16);
+    }
+
 }

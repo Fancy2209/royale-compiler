@@ -547,7 +547,7 @@ public class FieldEmitter extends JSSubEmitter implements
             }
             if (defaultInitializers)
             {
-                if (defName.equals("Number"))
+                if (defName.equals("Number") || defName.equals("float"))
                 {
                     write(ASEmitterTokens.SPACE);
                     writeToken(ASEmitterTokens.EQUAL);

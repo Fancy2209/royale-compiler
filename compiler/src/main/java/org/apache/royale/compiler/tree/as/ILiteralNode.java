@@ -96,6 +96,12 @@ public interface ILiteralNode extends IExpressionNode
          * a numeric literal of any type supported by the ActionScript language <br>
          * For example: <code> 10 </code> or <code>3.14159265</code>
          */
+        FLOAT(BuiltinType.FLOAT),
+
+        /**
+         * a numeric literal of any type supported by the ActionScript language <br>
+         * For example: <code> 10 </code> or <code>3.14159265</code>
+         */
         NUMBER(BuiltinType.NUMBER),
 
         /**

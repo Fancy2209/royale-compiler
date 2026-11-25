@@ -72,6 +72,7 @@ public final class ConfigManager
                 //add required builtin definitions
                 definitions = new ArrayList<IDefinition>(5);
                 definitions.add(project.getScope().findDefinitionByName(IASLanguageConstants.Boolean));
+                definitions.add(project.getScope().findDefinitionByName(IASLanguageConstants._float));
                 definitions.add(project.getScope().findDefinitionByName(IASLanguageConstants.String));
                 definitions.add(project.getScope().findDefinitionByName(IASLanguageConstants.uint));
                 definitions.add(project.getScope().findDefinitionByName(IASLanguageConstants._int));

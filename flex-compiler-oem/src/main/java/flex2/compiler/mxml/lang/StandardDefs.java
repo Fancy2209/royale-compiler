@@ -689,6 +689,7 @@ public abstract class StandardDefs
     {
         as3BuiltInTypeNames.add("String");
         as3BuiltInTypeNames.add("Boolean");
+        as3BuiltInTypeNames.add("float");
         as3BuiltInTypeNames.add("Number");
         as3BuiltInTypeNames.add("int");
         as3BuiltInTypeNames.add("uint");

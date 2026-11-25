@@ -214,6 +214,8 @@ public class FunctionUtils
     {
         if (paramType.equals("Function"))
             return "null";
+        else if (paramType.equals("float"))
+            return "0";
         else if (paramType.equals("Number"))
             return "0";
         else if (paramType.equals("String"))

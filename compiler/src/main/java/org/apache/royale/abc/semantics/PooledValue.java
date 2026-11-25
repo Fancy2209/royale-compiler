@@ -45,6 +45,9 @@ public class PooledValue
         else if (value instanceof Double) {
             this.kind = ABCConstants.CONSTANT_Double;
         }
+        else if (value instanceof Float) {
+            this.kind = ABCConstants.CONSTANT_Float;
+        }
         else if (value instanceof String) {
             this.kind = ABCConstants.CONSTANT_Utf8;
         }
@@ -157,6 +160,14 @@ public class PooledValue
     public Double getDoubleValue()
     {
         return (Double)this.value;
+    }
+
+    /**
+     * @return this value's value object, cast to Float.
+     */
+    public Float getFloatValue()
+    {
+        return (Float)this.value;
     }
 
     /**

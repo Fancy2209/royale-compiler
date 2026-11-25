@@ -520,7 +520,8 @@ public class SemanticUtils
      */
     public static boolean isNumericType(IDefinition def, ICompilerProject project)
     {
-        return isBuiltin(def, BuiltinType.INT, project) ||
+        return isBuiltin(def, BuiltinType.FLOAT, project) ||
+               isBuiltin(def, BuiltinType.INT, project) ||
                isBuiltin(def, BuiltinType.UINT, project) ||
                isBuiltin(def, BuiltinType.NUMBER, project);
     }

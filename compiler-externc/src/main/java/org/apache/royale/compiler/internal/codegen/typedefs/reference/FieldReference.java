@@ -169,6 +169,8 @@ public class FieldReference extends MemberReference
         {
         	if (type.equals("Boolean"))
                 getBody = "{ return false; }";
+        	else if (type.equals("float"))
+                getBody = "{ return 0; }";
             else if (type.equals("int"))
                 getBody = "{ return 0; }";
         	else if (type.equals("Number"))
@@ -268,11 +270,11 @@ public class FieldReference extends MemberReference
     private String toConstValue(Node node)
     {
     	String typeString = toTypeString();
-        if (typeString.equals("Number"))
+        if (typeString.equals("Number") || typeString.equals("float"))
             return Integer.toString(getClassReference().getEnumConstant());
         if (node == null)
         {
-        	if (typeString.equals("Number"))
+        	if (typeString.equals("Number") || typeString.equals("float"))
         		return "NaN";
         	return "null";
         }

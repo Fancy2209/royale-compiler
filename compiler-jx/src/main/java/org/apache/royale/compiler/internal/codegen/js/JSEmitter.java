@@ -630,7 +630,7 @@ public class JSEmitter extends ASEmitter implements IJSEmitter
 				coercionEnd = ") >>> 0";
             }
         }
-        else if (project.getBuiltinType(BuiltinType.NUMBER).equals(definition)
+        else if (project.getBuiltinType(BuiltinType.FLOAT).equals(definition)
                 && !project.getBuiltinType(BuiltinType.NUMBER).equals(assignedTypeDef)
                 && !project.getBuiltinType(BuiltinType.INT).equals(assignedTypeDef)
                 && !project.getBuiltinType(BuiltinType.UINT).equals(assignedTypeDef))

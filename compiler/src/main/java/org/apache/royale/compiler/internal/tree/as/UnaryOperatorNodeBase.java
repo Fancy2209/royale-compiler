@@ -251,11 +251,14 @@ public abstract class UnaryOperatorNodeBase extends OperatorNodeBase implements 
         {
             ITypeDefinition intType = project.getBuiltinType(BuiltinType.INT);
             ITypeDefinition uintType = project.getBuiltinType(BuiltinType.UINT);
+            ITypeDefinition floatType = project.getBuiltinType(BuiltinType.FLOAT);
 
             if (exprType.equals(intType))
                 return intType;
             else if (exprType.equals(uintType))
                 return uintType;
+            else if (exprType.equals(floatType))
+                return floatType;
         }
         
         return project.getBuiltinType(BuiltinType.NUMBER);

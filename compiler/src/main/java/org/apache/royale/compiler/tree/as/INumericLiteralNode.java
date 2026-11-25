@@ -93,6 +93,13 @@ public interface INumericLiteralNode extends IExpressionNode
         /**
          * Returns the value of this number as an AS3 <code>Number</code>
          * 
+         * @return an <code>float</code> value
+         */
+        public float toFloat();
+
+        /**
+         * Returns the value of this number as an AS3 <code>Number</code>
+         * 
          * @return an <code>Number</code> value
          */
         public double toNumber();

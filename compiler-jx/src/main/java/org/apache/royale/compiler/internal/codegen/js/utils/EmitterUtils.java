@@ -46,10 +46,6 @@ import org.apache.royale.compiler.internal.definitions.ParameterDefinition;
 import org.apache.royale.compiler.internal.definitions.VariableDefinition;
 import org.apache.royale.compiler.internal.semantics.SemanticUtils;
 import org.apache.royale.compiler.internal.tree.as.*;
-import org.apache.royale.compiler.internal.tree.as.ConfigConditionBlockNode;
-import org.apache.royale.compiler.internal.tree.as.ContainerNode;
-import org.apache.royale.compiler.internal.tree.as.NodeBase;
-import org.apache.royale.compiler.internal.tree.as.ParameterNode;
 import org.apache.royale.compiler.projects.ICompilerProject;
 import org.apache.royale.compiler.tree.ASTNodeID;
 import org.apache.royale.compiler.tree.as.*;
@@ -778,7 +774,8 @@ public class EmitterUtils
             return false;
         }
         if (project.getBuiltinType(BuiltinType.INT).equals(varTypeDef)
-                || project.getBuiltinType(BuiltinType.UINT).equals(varTypeDef))
+                || project.getBuiltinType(BuiltinType.UINT).equals(varTypeDef)
+                || project.getBuiltinType(BuiltinType.FLOAT).equals(varTypeDef))
         {
             //always true, regardless of -js-default-initializers
             return true;

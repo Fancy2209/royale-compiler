@@ -302,7 +302,7 @@ public class ResourceBundleCompilationUnit extends CompilationUnitBase
             final ABCEmitter emitter = new ABCEmitter();
 
             // TODO: hook this up to something in the settings - how do we access settings from here?
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
 
             byte[] generatedBytes = null;
             try

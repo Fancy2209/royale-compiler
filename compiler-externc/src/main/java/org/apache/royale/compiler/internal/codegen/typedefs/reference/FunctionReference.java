@@ -129,6 +129,8 @@ public class FunctionReference extends BaseReference {
         if (!returnString.equals("void")) {
         	if (returnString.equals("Boolean"))
         		returns = "return false;";
+        	else if (returnString.equals("float"))
+        		returns = "return 0;";
             else if (returnString.equals("int"))
                 returns = "return 0;";
         	else if (returnString.equals("Number"))

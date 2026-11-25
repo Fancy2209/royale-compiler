@@ -55,6 +55,27 @@ public class ASLiteralsTests extends ASTestBase
 	}
 
 	@Test
+	public void testFloat()
+	{
+		ILiteralNode node = (ILiteralNode) getNode("123.45f;", ILiteralNode.class);
+		Assert.assertEquals(LiteralType.FLOAT, node.getLiteralType());
+
+		INumericLiteralNode numericNode = (INumericLiteralNode) node;
+		INumericLiteralNode.INumericValue numericValue = numericNode.getNumericValue();
+		Assert.assertNotNull(numericValue);
+		Assert.assertEquals(BuiltinType.FLOAT, numericValue.getAssumedType());
+		Assert.assertEquals(123.45, numericValue.toNumber(), 0.0);
+
+		IASNode parentNode = node.getParent();
+		Assert.assertEquals(0, node.getAbsoluteStart() - parentNode.getAbsoluteStart());
+		Assert.assertEquals(6, node.getAbsoluteEnd() - parentNode.getAbsoluteStart());
+		Assert.assertEquals(0, node.getLine() - parentNode.getLine());
+		Assert.assertEquals(0, node.getColumn() - parentNode.getColumn());
+		Assert.assertEquals(0, node.getEndLine() - parentNode.getLine());
+		Assert.assertEquals(6, node.getEndColumn() - parentNode.getColumn());
+	}
+
+	@Test
 	public void testNumber_int()
 	{
 		ILiteralNode node = (ILiteralNode) getNode("678;", ILiteralNode.class);

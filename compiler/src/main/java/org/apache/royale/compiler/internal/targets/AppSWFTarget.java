@@ -286,7 +286,7 @@ public class AppSWFTarget extends SWFTarget
                 return arg0.getABCData();
             }});
         byte[] linkedBytes = 
-            ABCLinker.linkABC(inputABCsBytes, ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10, linkSettings);
+            ABCLinker.linkABC(inputABCsBytes, ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51, linkSettings);
         DoABCTag linkedTag = new DoABCTag(1, "merged", linkedBytes);
         targetFrame.addTag(linkedTag);
     }

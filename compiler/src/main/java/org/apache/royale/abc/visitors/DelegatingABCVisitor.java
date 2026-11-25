@@ -93,6 +93,12 @@ public class DelegatingABCVisitor implements IABCVisitor
     }
 
     @Override
+    public void visitPooledFloat(Float f)
+    {
+        delegate.visitPooledFloat(f);
+    }
+
+    @Override
     public void visitPooledString(String s)
     {
         delegate.visitPooledString(s);

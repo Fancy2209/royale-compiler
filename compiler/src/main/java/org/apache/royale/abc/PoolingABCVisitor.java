@@ -88,6 +88,12 @@ public class PoolingABCVisitor implements IABCVisitor
     }
 
     @Override
+    public void visitPooledFloat (Float f)
+    {
+        this.floatPool.add(f);
+    }
+
+    @Override
     public void visitPooledInt (Integer i)
     {
         this.intPool.add(i);
@@ -154,6 +160,8 @@ public class PoolingABCVisitor implements IABCVisitor
     private final Pool<Long> uintPool = new Pool<Long>(Pool.DefaultType.HasDefaultZero);
 
     private final Pool<Double> doublePool = new Pool<Double>(Pool.DefaultType.HasDefaultZero);
+
+    private final Pool<Float> floatPool = new Pool<Float>(Pool.DefaultType.HasDefaultZero);
 
     private final Pool<Namespace> nsPool = new Pool<Namespace>(Pool.DefaultType.HasDefaultZero);
 

@@ -36,6 +36,7 @@ public abstract class ABCConstants
 
     public static final int CONSTANT_Undefined = 0x00;
     public static final int CONSTANT_Utf8 = 0x01;
+    public static final int CONSTANT_Float = 0x02;
     public static final int CONSTANT_Int = 0x03;
     public static final int CONSTANT_UInt = 0x04;
     public static final int CONSTANT_PrivateNs = 0x05; // non-shared namespace
@@ -67,7 +68,7 @@ public abstract class ABCConstants
     public static final String[] constantKinds = {
             "0",
             "utf8",
-            "",
+            "float",
             "int",
             "uint",
             "private",
@@ -146,6 +147,7 @@ public abstract class ABCConstants
     public static final int OP_hasnext = 0x1F;
     public static final int OP_pushnull = 0x20;
     public static final int OP_pushundefined = 0x21;
+    public static final int OP_pushfloat = 0x22;
     public static final int OP_nextvalue = 0x23;
     public static final int OP_pushbyte = 0x24;
     public static final int OP_pushshort = 0x25;
@@ -226,6 +228,7 @@ public abstract class ABCConstants
     public static final int OP_convert_b = 0x76;
     public static final int OP_convert_o = 0x77;
     public static final int OP_checkfilter = 0x78;
+    public static final int OP_convert_f = 0x79;
     public static final int OP_unplus = 0x7A;
     public static final int OP_coerce = 0x80;
     public static final int OP_coerce_b = 0x81;
@@ -325,7 +328,7 @@ public abstract class ABCConstants
         "hasnext       ",
         "pushnull      ",
         "pushundefined ",
-        "OP_0x22       ",
+        "pushfloat     ",
         "nextvalue     ",
         "pushbyte      ",
         "pushshort     ",
@@ -412,7 +415,7 @@ public abstract class ABCConstants
         "convert_b     ",
         "convert_o     ",
         "checkfilter   ",
-        "OP_0x79       ",
+        "convert_f      ",
         "unplus        ",
         "OP_0x7B       ",
         "OP_0x7C       ",
@@ -592,6 +595,7 @@ public abstract class ABCConstants
 
     public static final int VERSION_ABC_MAJOR_FP10 = 46;
     public static final int VERSION_ABC_MINOR_FP10 = 16;
+    public static final int VERSION_ABC_MINOR_AIR51 = 17;
 
     public static final int TRAIT_KIND_MASK = 0x0F;
     public static final int ZERO_INDEX = 0;

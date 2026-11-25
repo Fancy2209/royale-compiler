@@ -89,7 +89,7 @@ public class ABCLinker
         private boolean removeDeadCode = false;
         private Collection<String> meta_names = null;
         @SuppressWarnings("unused")
-        private int minorVersion = ABCConstants.VERSION_ABC_MINOR_FP10;
+        private int minorVersion = ABCConstants.VERSION_ABC_MINOR_AIR51;
         @SuppressWarnings("unused")
         private int majorVersion = ABCConstants.VERSION_ABC_MAJOR_FP10;
         private Collection<ICompilerProblem> problems;
@@ -741,6 +741,12 @@ public class ABCLinker
 
         @Override
         public void visitPooledDouble(Double d)
+        {
+            // emitter automatically pools values.
+        }
+
+        @Override
+        public void visitPooledFloat(Float f)
         {
             // emitter automatically pools values.
         }

@@ -91,6 +91,14 @@ public interface IABCVisitor extends IVisitor
     void visitPooledDouble(Double d);
 
     /**
+     * Visit a pooled float value.
+     * 
+     * @note values introduced as operands of instructions need not use this
+     * method.
+     */
+    void visitPooledFloat(Float f);
+
+    /**
      * Visit a pooled string value.
      * 
      * @note values introduced as operands of instructions need not use this

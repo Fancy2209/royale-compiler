@@ -44,6 +44,7 @@ public class ReferenceFactory
     private static final IReference REFERENCE_Array = new BuiltinReference(IASLanguageConstants.BuiltinType.ARRAY);
     private static final IReference REFERENCE_Boolean = new BuiltinReference(IASLanguageConstants.BuiltinType.BOOLEAN);
     private static final IReference REFERENCE_Class = new BuiltinReference(IASLanguageConstants.BuiltinType.CLASS);
+    private static final IReference REFERENCE_float = new BuiltinReference(IASLanguageConstants.BuiltinType.FLOAT);
     private static final IReference REFERENCE_Function = new BuiltinReference(IASLanguageConstants.BuiltinType.FUNCTION);
     private static final IReference REFERENCE_int = new BuiltinReference(IASLanguageConstants.BuiltinType.INT);
     private static final IReference REFERENCE_null = new BuiltinReference(IASLanguageConstants.BuiltinType.NULL);
@@ -79,6 +80,8 @@ public class ReferenceFactory
                 return REFERENCE_Boolean;
             case CLASS:
                 return REFERENCE_Class;
+            case FLOAT:
+                return REFERENCE_float;
             case FUNCTION:
                 return REFERENCE_Function;
             case INT:

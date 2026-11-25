@@ -739,6 +739,34 @@ public class ABCGeneratingReducer
                 result_list.addInstruction(OP_pushuint, Long.valueOf(uval));
             }
         }
+        else if( type == project.getBuiltinType(BuiltinType.FLOAT) )
+        {
+            float dval = value.floatValue();
+            if( ECMASupport.isNanf(dval) )
+            {
+                result_list.addInstruction(OP_pushnan);
+            }
+            else if (!Float.isInfinite(dval) && (dval == ECMASupport.toInt32(value)) )
+            {
+                // distinguish pos/neg 0
+                // java treats -0 and 0 as equal, but divide by -0 results in NEG INFINITY, whereas pos
+                // 0 results in POS INFINITY
+                // positive 0 can be encoded with a pushbyte, but neg zero requires a pushdouble
+                if( dval == 0.0 && 1.0/dval == Float.NEGATIVE_INFINITY )
+                    result_list.addInstruction(OP_pushfloat, dval);
+                else
+                    // Integer
+                    pushNumericConstant(result_list, ECMASupport.toInt32(value), project.getBuiltinType(BuiltinType.INT));
+            }
+            else if( Float.isNaN(dval) )
+            {
+                result_list.addInstruction(OP_pushnan);
+            }
+            else
+            {
+                result_list.addInstruction(OP_pushfloat, value.doubleValue());
+            }
+        }
         else
         {
             double dval = value.doubleValue();
@@ -5322,6 +5350,10 @@ public class ABCGeneratingReducer
         {
             il.addInstruction(OP_convert_b);
         }
+        else if( toType == project.getBuiltinType(BuiltinType.FLOAT) )
+        {
+            il.addInstruction(OP_convert_f);
+        }
         else if( toType == project.getBuiltinType(BuiltinType.NUMBER) )
         {
             il.addInstruction(OP_convert_d);
@@ -6129,7 +6161,7 @@ public class ABCGeneratingReducer
                 init_insns.addInstruction(OP_pushfalse);
                 init_insns.addInstruction(var_binding.setlocal());
             }
-            else if ( type_def == project.getBuiltinType(BuiltinType.NUMBER) )
+            else if ( type_def == project.getBuiltinType(BuiltinType.NUMBER) || type_def == project.getBuiltinType(BuiltinType.FLOAT) )
             {
                 init_insns.addInstruction(OP_pushnan);
                 init_insns.addInstruction(var_binding.setlocal());
@@ -6292,6 +6324,7 @@ public class ABCGeneratingReducer
                 result.addInstruction(OP_pushstring, "string");
             }
             else if ( 
+                typezo == project.getBuiltinType(BuiltinType.FLOAT) ||
                 typezo == project.getBuiltinType(BuiltinType.NUMBER) ||
                 typezo == project.getBuiltinType(BuiltinType.INT) ||
                 typezo == project.getBuiltinType(BuiltinType.UINT) 

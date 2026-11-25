@@ -820,6 +820,7 @@ public abstract class CompilerProject implements ICompilerProject
         BuiltinType.STRING,
         BuiltinType.ANY_TYPE,
         BuiltinType.VOID,
+        BuiltinType.FLOAT,
         BuiltinType.NUMBER,
         BuiltinType.INT,
         BuiltinType.UINT
@@ -865,6 +866,8 @@ public abstract class CompilerProject implements ICompilerProject
                 return projectScope.getXMLListDefinition();
             case BOOLEAN:
                 return projectScope.getBooleanDefinition();
+            case FLOAT:
+                return projectScope.getFloatDefinition();
             case INT:
                 return projectScope.getIntDefinition();
             case UINT:

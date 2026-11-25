@@ -1923,6 +1923,8 @@ public class MethodBodySemanticChecker
     {
         switch ( value.getKind() )
         {
+            case ABCConstants.CONSTANT_Float:
+                return BuiltinType.FLOAT;
             case ABCConstants.CONSTANT_Int:
                 return BuiltinType.INT;
             case ABCConstants.CONSTANT_UInt:
@@ -2182,9 +2184,10 @@ public class MethodBodySemanticChecker
             return new PooledValue(initial_value_boolean);
                 
         }
-        else if (utils.isBuiltin(desired_type, BuiltinType.NUMBER))
+        else if (utils.isBuiltin(desired_type, BuiltinType.NUMBER) || utils.isBuiltin(desired_type, BuiltinType.FLOAT))
         {
-            if (utils.isBuiltin(value_type, BuiltinType.INT) ||
+            if (utils.isBuiltin(value_type, BuiltinType.FLOAT) ||
+                utils.isBuiltin(value_type, BuiltinType.UINT) ||
                 utils.isBuiltin(value_type, BuiltinType.UINT) ||
                 utils.isBuiltin(value_type, BuiltinType.NUMBER))
                 return initial_value;

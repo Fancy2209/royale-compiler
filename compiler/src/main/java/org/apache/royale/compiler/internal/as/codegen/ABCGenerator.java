@@ -98,7 +98,7 @@ public class ABCGenerator implements ICodeGenerator
 	    final ABCEmitter emitter = (ABCEmitter)global_scope.getEmitter();
 
         // CG targets the latest version - these ABCs can be postprocessed to downgrade to previous versions
-        emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+        emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
 
         IScriptVisitor sv = emitter.visitScript();
         sv.visit();

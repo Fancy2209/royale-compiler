@@ -228,6 +228,7 @@ public abstract class BaseMojo
         manifestComponents.add(new ManifestComponent("Class", "Class", true));
         manifestComponents.add(new ManifestComponent("Date", "Date", true));
         manifestComponents.add(new ManifestComponent("DesignLayer", "mx.core.DesignLayer", false));
+        manifestComponents.add(new ManifestComponent("float", "float", true));
         manifestComponents.add(new ManifestComponent("Function", "Function", true));
         manifestComponents.add(new ManifestComponent("int", "int", true));
         manifestComponents.add(new ManifestComponent("Number", "Number", true));

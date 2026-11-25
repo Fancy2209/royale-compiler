@@ -139,7 +139,8 @@ public class JSRoyaleDocEmitter extends JSDocEmitter implements IJSRoyaleDocEmit
                 || name.equals(IASLanguageConstants.String)
                 || name.equals(IASLanguageConstants.Number))
             result = name.toLowerCase();
-        else if (name.equals(IASLanguageConstants._int)
+        else if (name.equals(IASLanguageConstants._float)
+                || name.equals(IASLanguageConstants._int)
                 || name.equals(IASLanguageConstants.uint))
             result = IASLanguageConstants.Number.toLowerCase();
 

@@ -108,7 +108,7 @@ public class FunctionCallEmitter extends JSSubEmitter implements ISubEmitter<IFu
                 {
                     if (!omitNew
                             && ((def == null
-                                || !(def.getBaseName().equals(IASGlobalFunctionConstants._int) || def.getBaseName().equals(IASGlobalFunctionConstants.uint)))
+                                || !(def.getBaseName().equals(IASGlobalFunctionConstants._int) || def.getBaseName().equals(IASGlobalFunctionConstants.uint)) || def.getBaseName().equals(IASGlobalFunctionConstants._float)))
                                 && !(def instanceof AppliedVectorDefinition && (
                                         ((RoyaleJSProject) getProject()).config.getJsVectorEmulationClass()!= null
                                         && ((RoyaleJSProject) getProject()).config.getJsVectorEmulationClass().equals(IASLanguageConstants.Array))
@@ -269,7 +269,7 @@ public class FunctionCallEmitter extends JSSubEmitter implements ISubEmitter<IFu
                 {
                     startMapping(nameNode);
                     boolean isInt = def.getBaseName().equals(IASGlobalFunctionConstants._int);
-                    if (isInt || def.getBaseName().equals(IASGlobalFunctionConstants.uint))
+                    if (isInt || def.getBaseName().equals(IASGlobalFunctionConstants.uint) || def.getBaseName().equals(IASGlobalFunctionConstants._float))
                     {
                         if (project instanceof RoyaleJSProject)
                             ((RoyaleJSProject) project).needLanguage = true;
@@ -465,6 +465,7 @@ public class FunctionCallEmitter extends JSSubEmitter implements ISubEmitter<IFu
                     boolean isInt = def.getBaseName().equals(IASGlobalFunctionConstants._int);
                     boolean isTrace = def.getParent() == null && def.getBaseName().equals(IASGlobalFunctionConstants.trace);
                     if (isInt || isTrace
+                            || def.getBaseName().equals(IASGlobalFunctionConstants._float)
                             || def.getBaseName().equals(IASGlobalFunctionConstants.uint))
                     {
                         if (project instanceof RoyaleJSProject)
@@ -510,7 +511,8 @@ public class FunctionCallEmitter extends JSSubEmitter implements ISubEmitter<IFu
                                     IExpressionNode optionsParamCheck = args.length == 1 ? args[0] : args[1];
                                     IDefinition paramCheck = optionsParamCheck.resolveType(project);
             
-                                    if (paramCheck.getBaseName().equals(IASLanguageConstants._int)
+                                    if (paramCheck.getBaseName().equals(IASLanguageConstants._float)
+                                            || paramCheck.getBaseName().equals(IASLanguageConstants._int)
                                             || paramCheck.getBaseName().equals(IASLanguageConstants.uint)
                                             || paramCheck.getBaseName().equals(IASLanguageConstants.Number))
                                     {

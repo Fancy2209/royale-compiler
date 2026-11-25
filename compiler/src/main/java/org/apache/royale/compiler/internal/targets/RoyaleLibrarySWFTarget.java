@@ -367,7 +367,7 @@ public final class RoyaleLibrarySWFTarget extends LibrarySWFTarget
                 Collection<ICompilerProblem> problemCollection) throws InterruptedException
         {
             ABCEmitter emitter = new ABCEmitter();
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
             
 
             final String generatedRootClassNameString = moduleFactoryInfo.generatedModuleFactoryClassName;

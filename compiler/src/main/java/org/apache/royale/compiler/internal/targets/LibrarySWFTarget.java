@@ -117,7 +117,7 @@ public class LibrarySWFTarget extends SWFTarget implements ILibrarySWFTarget
         for (DoABCTag inputABC : inputABCs)
         {
             byte[] linkedBytes = 
-                ABCLinker.linkABC(Collections.singleton(inputABC.getABCData()), ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10, linkSettings);
+                ABCLinker.linkABC(Collections.singleton(inputABC.getABCData()), ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51, linkSettings);
             DoABCTag linkedTag = new DoABCTag(1, inputABC.getName(), linkedBytes);
             targetFrame.addTag(linkedTag);
         }

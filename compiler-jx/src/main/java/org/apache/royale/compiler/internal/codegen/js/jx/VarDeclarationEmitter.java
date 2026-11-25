@@ -173,7 +173,7 @@ public class VarDeclarationEmitter extends JSSubEmitter implements
                 }
                 else if (defaultInitializers)
                 {
-                    if (defName.equals("Number"))
+                    if (defName.equals("Number") || defName.equals("float"))
                     {
                         write(ASEmitterTokens.SPACE);
                         writeToken(ASEmitterTokens.EQUAL);

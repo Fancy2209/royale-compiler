@@ -1161,7 +1161,7 @@ public class ASC
 
     private int getMinorABCVersion()
     {
-        return ABCConstants.VERSION_ABC_MINOR_FP10;
+        return ABCConstants.VERSION_ABC_MINOR_AIR51;
     }
 
     private int getMajorABCVersion()

@@ -197,6 +197,8 @@ public class MethodReference extends MemberReference
         {
         	if (returnString.equals("Boolean"))
         		returns = "return false;";
+        	else if (returnString.equals("float"))
+        		returns = "return 0;";
             else if (returnString.equals("int"))
                 returns = "return 0;";
         	else if (returnString.equals("Number"))

@@ -70,6 +70,7 @@ public class ReferenceModel
     {
         FINAL_CLASSES.add("Boolean");
         FINAL_CLASSES.add("Date");
+        FINAL_CLASSES.add("float");
         FINAL_CLASSES.add("int");
         FINAL_CLASSES.add("JSON");
         FINAL_CLASSES.add("Math");

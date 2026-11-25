@@ -951,7 +951,7 @@ public class RoyaleAppSWFTarget extends AppSWFTarget
         private boolean addGeneratedStylesClassToFrame(SWFFrame frame, Set<ICompilationUnit> emittedCompilationUnits) throws Exception
         {
             ABCEmitter emitter = new ABCEmitter();
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
             ICSSCodeGenResult cssCodeGenResult = cssCompilationSession.emitStyleDataClass(royaleProject, emitter);
 
             Name stylesClassName = new Name(getStylesClassName());
@@ -1306,7 +1306,7 @@ public class RoyaleAppSWFTarget extends AppSWFTarget
                      royaleProject.getWorkspace(), className);
 
             ABCEmitter emitter = new ABCEmitter();
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
 
             ClassGeneratorHelper classGen = new ClassGeneratorHelper(royaleProject, emitter,
                      mainClassRef.getMName(),
@@ -1375,7 +1375,7 @@ public class RoyaleAppSWFTarget extends AppSWFTarget
                 boolean isAppFlexInfo, RoyaleApplicationFrame1Info frame1Info, FlexRSLInfo rslInfo) throws InterruptedException
         {
             ABCEmitter emitter = new ABCEmitter();
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
             
             
             String royaleInitClassNameString = getFlexInitClassName();
@@ -1789,7 +1789,7 @@ public class RoyaleAppSWFTarget extends AppSWFTarget
                 Collection<ICompilerProblem> problemCollection) throws InterruptedException
         {
             ABCEmitter emitter = new ABCEmitter();
-            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_FP10);
+            emitter.visit(ABCConstants.VERSION_ABC_MAJOR_FP10, ABCConstants.VERSION_ABC_MINOR_AIR51);
             
 
             String generatedSystemManagerClassNameString = getGeneratedSystemManagerClassName(systemManagerClass);

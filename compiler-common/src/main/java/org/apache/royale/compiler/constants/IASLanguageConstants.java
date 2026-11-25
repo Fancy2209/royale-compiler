@@ -43,6 +43,7 @@ public interface IASLanguageConstants
 	static final String EXCLUDE_META_TAG_STYLE = "style"; 
 	static final String Event = "flash.events.Event"; 
 	static final String EventDispatcher = "flash.events.EventDispatcher"; 
+	static final String _float = "float"; 
 	static final String Function = "Function";
 	static final String getClassByAlias = "flash.net.getClassByAlias"; 
 	static final String getDefinitionByName = "flash.utils.getDefinitionByName"; 
@@ -60,6 +61,7 @@ public interface IASLanguageConstants
     static final String Undefined = "Undefined";
 	static final String Vector = "Vector"; 
 	static final String Vector_double = "Vector$double"; 
+	static final String Vector_float = "Vector$float"; 
 	static final String Vector_int = "Vector$int"; 
 	static final String Vector_object = "Vector$object"; 
 	static final String Vector_uint = "Vector$uint"; 
@@ -99,6 +101,7 @@ public interface IASLanguageConstants
 	    INT(IASLanguageConstants._int),
         NAMESPACE(IASLanguageConstants.Namespace),
         NULL(IASLanguageConstants.Null),
+	    FLOAT(IASLanguageConstants._float),
         NUMBER(IASLanguageConstants.Number),
 	    OBJECT(IASLanguageConstants.Object),
 	    QNAME(IASLanguageConstants.QName),

@@ -291,6 +291,7 @@ public class ArrayLikeUtil
         if (project.getBuiltinType(IASLanguageConstants.BuiltinType.NUMBER).equals(dynType)
                 || project.getBuiltinType(IASLanguageConstants.BuiltinType.UINT).equals(dynType)
                 || project.getBuiltinType(IASLanguageConstants.BuiltinType.INT).equals(dynType)
+                || project.getBuiltinType(IASLanguageConstants.BuiltinType.FLOAT).equals(dynType)
         ) {
             IDefinition target = dynNode.getLeftOperandNode().resolveType(project);
             isCandidate = ArrayLikeUtil.isArrayLike(target, project);

@@ -214,6 +214,14 @@ public class ECMASupport
     }
 
     /**
+     * Determines is a specific single-precision floating poing number is Nan
+     */
+    public static boolean isNanf(final float number)
+    {
+        return Float.isNaN(number); // Luckily ECMA uses the standard IEEE conventions for NaN
+    }
+
+    /**
      * Determines is a specific floating poing number is Nan
      */
     public static boolean isNan(final double number)

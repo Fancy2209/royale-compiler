@@ -67,6 +67,7 @@ import org.apache.royale.compiler.scopes.IASScope;
 import org.apache.royale.compiler.scopes.IDefinitionSet;
 import org.apache.royale.compiler.scopes.IFileScope;
 import org.apache.royale.compiler.units.ICompilationUnit;
+import org.apache.royale.compiler.units.IInvisibleCompilationUnit;
 import org.apache.royale.compiler.units.requests.IFileScopeRequestResult;
 import org.apache.royale.compiler.units.requests.IRequest;
 import org.apache.royale.compiler.workspaces.IWorkspace;
@@ -976,6 +977,8 @@ public class ASProjectScope extends ASScopeBase
                 xmllistDefinition = (ITypeDefinition)def;
             else if (defName.equals(IASLanguageConstants.BuiltinType.BOOLEAN.getName()))
                 booleanDefinition = (ITypeDefinition)def;
+            else if (defName.equals(IASLanguageConstants.BuiltinType.FLOAT.getName()))
+                intDefinition = (ITypeDefinition)def;
             else if (defName.equals(IASLanguageConstants.BuiltinType.INT.getName()))
                 intDefinition = (ITypeDefinition)def;
             else if (defName.equals(IASLanguageConstants.BuiltinType.UINT.getName()))
@@ -1486,7 +1489,9 @@ public class ASProjectScope extends ASScopeBase
                 // we'll lookup the corresponding type and see if it matches
                 // the specified element type.
                 String elementTypeName = elementType.getBaseName();
-                if (elementTypeName.equals(IASLanguageConstants._int))
+                if (elementTypeName.equals(IASLanguageConstants._float))
+                    vectorTypeName = IASLanguageConstants.Vector_float;
+                else if (elementTypeName.equals(IASLanguageConstants._int))
                     vectorTypeName = IASLanguageConstants.Vector_int;
                 else if (elementTypeName.equals(IASLanguageConstants.uint))
                     vectorTypeName = IASLanguageConstants.Vector_uint;
@@ -1836,6 +1841,18 @@ public class ASProjectScope extends ASScopeBase
         }
 
         return booleanDefinition;
+    }
+
+    public final ITypeDefinition getFloatDefinition()
+    {
+        if (numberDefinition == null)
+        {
+            // If we don't have an Definition for Object yet, call getDefinitionSetByName,
+            // which will transform any DefinitionPromises -> Definitions, and set the numberDefinition member.
+            getLocalDefinitionSetByName(IASLanguageConstants.BuiltinType.FLOAT.getName());
+        }
+
+        return numberDefinition;
     }
 
     public final ITypeDefinition getIntDefinition()

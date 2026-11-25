@@ -33,6 +33,7 @@ public interface IASGlobalFunctionConstants
     static final String encodeURI = "encodeURI";
     static final String encodeURIComponent = "encodeURIComponent";
     static final String escape = "escape";
+    static final String _float = "float";
     static final String _int = "int";
     static final String isFinite = "isFinite";
     static final String isNaN = "isNaN";
@@ -60,7 +61,8 @@ public interface IASGlobalFunctionConstants
                 IASGlobalFunctionConstants.decodeURIComponent), ENCODEURI(
                 IASGlobalFunctionConstants.encodeURI), ENCODEURICOMPONENT(
                 IASGlobalFunctionConstants.encodeURIComponent), ESCAPE(
-                IASGlobalFunctionConstants.escape), INT(
+                IASGlobalFunctionConstants.escape), FLOAT(
+                IASGlobalFunctionConstants._float), INT(
                 IASGlobalFunctionConstants._int), ISFINITE(
                 IASGlobalFunctionConstants.isFinite), ISNAN(
                 IASGlobalFunctionConstants.isNaN), ISXMLNAME(

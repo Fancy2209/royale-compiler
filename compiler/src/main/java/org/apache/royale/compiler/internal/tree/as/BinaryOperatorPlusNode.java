@@ -125,6 +125,9 @@ public class BinaryOperatorPlusNode extends BinaryOperatorNodeBase
      */
     private boolean isNumericType(ITypeDefinition type, ICompilerProject project)
     {
+        if (project.getBuiltinType(BuiltinType.FLOAT).equals(type))
+            return true;
+    
         if (project.getBuiltinType(BuiltinType.NUMBER).equals(type))
             return true;
     

@@ -42,6 +42,7 @@ public final class SymbolTable
 	public static final String NOTYPE = "*";
 	public static final String STRING = "String";
 	public static final String BOOLEAN = "Boolean";
+	public static final String FLOAT = "float";
 	public static final String NUMBER = "Number";
 	public static final String INT = "int";
 	public static final String UINT = "uint";
